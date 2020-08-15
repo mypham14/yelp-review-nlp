@@ -1,9 +1,8 @@
 # Yelp's Reviews Classification Using NLP Text Analytics
 Anallysis of Yelp's reviews using NLP Text Analytics to classify whether a review is positive or negative
 
-
-Data source: https://www.kaggle.com/yelp-dataset/yelp-dataset/version/6
-
+In a bid to stay ahead, companies use data analytics to gauge their standing against competitors and gain leverage over them. Yelp is a business directory service and crowd-sourced review forum and collects data such as user ratings on a particular business, along with their locations, reviews (text), ratings, timings, likes, dislikes, etc.
+A business has many choices when it comes to investing money. Should a restaurant get well-known chefs or excellent lighting? Should a salon invest in high tech appliances or comfortable seats? If many customers talk about “ambience” while giving a 5-star review, it would mean customers really care about great ambience and hence the business should focus on it. Our aim is to explore this mass of data and answer the following and come up with interesting questions and analyze how or what a business can use to plan their next step to position their product/brand.
 
 ## Table of contents
 * [Description](#description)
@@ -19,73 +18,94 @@ Data source: https://www.kaggle.com/yelp-dataset/yelp-dataset/version/6
 * [Contact](#contact)
 
 ## Description
-The objective of this project is to predict stock prices of a diversified portfolio including 6 companies from 6 different industries and the S&P500 to help investors make financial decisions given the close, open, high, low prices and trading volume over 20 years. Since the main purpose is to test different regression models, the project will use data of one company (Chase) for all models.
+The objective of this project is to classify a review on Yelp as negative or positive based on key words, helping businesses in various industries identify areas of improvement and make strategic plans to gain leverage over competitors by improving those areas and revenues accordingly. The project will use Sentiment Analysis to answer the following questions:
+* What factors lead to business success?
+* What are the most important concerns for customers?
 
-*Disclaimer: This project is created for learning purposes and does not hold responsibility over the accuracy of source information and model results compared to reality for investing purposes.*
+Sentiment Analysis will identify top 10 business relevant words in positive or negative reviews. This project will focus on what makes a good restaurant, what concerns customers, and make recommendations for future improvent. For customer needs, Review Text and Star Rating provide an excellent basis to identify their concerns. We will use Business Closure (is_open) as the determining factor of business success.
+
+Data source: https://www.kaggle.com/yelp-dataset/yelp-dataset/version/6
 
 ## Methodologies
-* Extract stock prices of all companies over 20 years from Yahoo Finance, perform data cleaning, ETL and maintain a database of stock details in MySQL Server
-* Test a combination of models including ARIMA Time Series, Regression Machine Learning models (KNN, Linear Regression, Ridge, LASSO, Support Vector Machines (SVM - linear, poly, rbf)), Ensemble Learning (Bagging, Pasting, Adaboost and Gradient Boosting) and Deep Learning models (Long Short-Term Memory (LSTM)) to predict stock prices of the companies in the portfolio
-* Perform parameter tuning and model evaluation
-* Web scrape real-time stock prices of all companies
-* Create Tableau dashboards for all companies' stock prices for data analysis and visualization 
-* Automate the modeling process and deploy the chosen model into production in Azure ML using R scripts
+* Data exploration: perform EDA on all datasets to get a general understanding of the data
+* Data modeling: classify business closure (is_open) is true or not by applying logistic regression, SMOTE algorithm, Near-Miss algorithm, classification models with SMOTE (decision tree, random forest, KNN)
+* Sentiment Analysis: identify top key words related to restaurants
 
 ## Results
-* **Model Result**: ARIMA time series provided the highest accuracy with a MSE of 0.22 (followed by KNN).
-* **Visualization**: Tableau dashboards for the stock portfolio analysis were created [here](https://tabsoft.co/2DxdiBV).
-* **Automated ML and Deployment**: the chosen model (time series) was applied in Azure ML and deployed into production [here](https://bit.ly/3ksg24c).
+* **Model Result**: Most customers complain about delivery time of food and care about restaurants having "delicious" food or are "friendly"
 
 ## Files
-* Stock Price Prediction.sql: database of all stock data stored and analyzed in MySQL Server
-* Stock Price Prediction.ipynb: notebook describing all project steps 
-* stock.csv: all stock data of all 6 companies and the S&P500 index (37,002 rows and 5 columns - Close, Open, High, Low, Volume) for database management in MySQL Server
-* chase.csv: Chase data for all models in the project (5,286 rows and 6 columns - Close, Open, High, Low, Adj Close, Volume) with modifications of the datasaet for each respective model 
-* new_data.csv: Chase data for deep learning model (LSTM) (5,286 rows and 2 columns - Date, Close)
-For all models, Close price is the predicted value.
+* Data used in the project was downloaded from Kaggle including:
+  - yelp_business.csv: businesses on Yelp (174,567 rows, 13 columns)
+  - yelp_business_hours.csv: hours of operation (174,567 rows, 8 columns)
+  - yelp_checkin.csv: check-in time (3,911,218 rows, 4 columns)
+  - yelp_review.csv: review of the business on Yelp (5,261,668 rows, 9 columns)
+  - yelp_user.csv: user of the review (1,326,100 rows, 22 columns)
+  - yelp_business_attributes.csv: attributes of businesses (152,041 rows, 82 columns)
+  - yelp_tip: tip for each business (1,098,324 rows, 5 columns)
+* Group 5 - Code Part 1.ipynb: main code - exploratory data analysis and classification models
+* Group 5 - Code Part 2.ipynb: main code - sentiment analysis
+* Group-5_Buan6340.501_Project-Report.pdf: final report including project steps and results
+* Group5.5_Yelp_Reviews.pptx: Power Point presentation summarizing the project
 * requirements.txt: text file containing all Python libraries used in the project
 
 ## Technologies
 Project is created with:
 * MS Excel
-* SQL
-* MySQL Server
 * Anaconda
-* Jupyter Lab
 * Jupyter Notebook
-* Google Colab
 * Python 3
-* R Studio
-* Tableau
-* Azure ML Studio
 * Windows
 
 ## Packages
 * pandas
-* numpy
+* nltk
 * matplotlib
 * seaborn
-* tensorflow
-* keras
-* beautifulsoup
+* string
+* itertools
 * requests
-* scikit-learn
-* statsmodels.tsa
-* mysql.connector
+* Counter
+* defaultdict
+* nltk.text 
+* Text
+* nltk.probability 
+* FreqDist
+* nltk.tokenize 
+* word_tokenize
+* sent_tokenize
+* regexp_tokenize
+* nltk.corpus 
+* stopwords
+* nltk.stem 
+* PorterStemmer
+* WordNetLemmatizer
+* gensim.corpora.dictionary 
+* Dictionary
+* gensim.models.tfidfmodel 
+* TfidfModel
+* sklearn.cluster 
+* KMeans
+* wordcloud 
+* WordCloud
 
 ## Setup
-* Download all data files
+* Download all data files from Kaggle
+* Download both iPython notebooks
 * Install the requirements using `pip install -r requirements.txt`.
   - Make sure you use Python 3
 
 ## Usage
-* Run `Stock Price Prediction.ipynb` to see all project steps
+* Run `Group 5 - Code Part 1.ipynb` and `Group 5 - Code Part 2.ipynb` to see all project steps
 
 ## Status
 Project is finished.
 
 ## Inspiration
-Project inspired by [Analytics Vidhya](analyticsvidhya.com/)'s tutorials of prediction models.
+Project was created as the capstone assignment for Programming for Data Science course at UT Dallas.
 
 ## Contact
-Created by [@mypham14](https://github.com/mypham14/) - feel free to contact me on my [LinkedIn](https://www.linkedin.com/in/mytrapham)!
+Created by:
+* Mahesh Iyer
+* Sujith Nair
+* My Pham - [@mypham14](https://github.com/mypham14/) - feel free to contact me on my [LinkedIn](https://www.linkedin.com/in/mytrapham)!
