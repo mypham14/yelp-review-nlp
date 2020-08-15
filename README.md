@@ -1,5 +1,5 @@
 # Yelp's Reviews Classification Using NLP Text Analytics
-Anallysis of Yelp's reviews using NLP Text Analytics to classify whether a review is positive or negative
+Anallysis of Yelp's reviews using Sentiment Analysis and classification models to classify whether a review is positive, neutral or negative
 
 In a bid to stay ahead, companies use data analytics to gauge their standing against competitors and gain leverage over them. Yelp is a business directory service and crowd-sourced review forum and collects data such as user ratings on a particular business, along with their locations, reviews (text), ratings, timings, likes, dislikes, etc.
 A business has many choices when it comes to investing money. Should a restaurant get well-known chefs or excellent lighting? Should a salon invest in high tech appliances or comfortable seats? If many customers talk about “ambience” while giving a 5-star review, it would mean customers really care about great ambience and hence the business should focus on it. Our aim is to explore this mass of data and answer the following and come up with interesting questions and analyze how or what a business can use to plan their next step to position their product/brand.
@@ -22,7 +22,7 @@ The objective of this project is to classify a review on Yelp as negative or pos
 * What factors lead to business success?
 * What are the most important concerns for customers?
 
-Sentiment Analysis will identify top 10 business relevant words in positive or negative reviews. This project will focus on what makes a good restaurant, what concerns customers, and make recommendations for future improvent. For customer needs, Review Text and Star Rating provide an excellent basis to identify their concerns. We will use Business Closure (is_open) as the determining factor of business success.
+Sentiment Analysis will identify top 10 business relevant words in positive, neutral or negative reviews. This project will focus on what makes a good restaurant, what concerns customers, and make recommendations for future improvent. For customer needs, Review Text and Star Rating provide an excellent basis to identify their concerns. We will use Business Closure (is_open) as the determining factor of business success.
 
 Data source: https://www.kaggle.com/yelp-dataset/yelp-dataset/version/6
 
